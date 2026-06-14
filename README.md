@@ -1,85 +1,134 @@
-# Power BI Case Study: TechFuel Consulting Social Media Performance and KPI Tracking
+# TechFuel Consulting — Social Media Performance Dashboard
 
-## Profile and Core Competencies / Kompetenzprofil
-
-### English Summary
-* Project Goal: Engineered a comprehensive marketing analytics framework to monitor multi-platform corporate social media channels, track strict Year-over-Year target thresholds, and rank theme-based content variations.
-* Technical Skills Applied: Star Schema Implementation, Cross-Platform Metric Parsing, Time-Series Variance Diagnostics, Dynamic Target Indexing, and Content Performance Matrix Structuring.
-* Business Value: Consolidated unaggregated raw post, engagement, and follower data streams into a single executive dashboard layer, transforming messy tracking lists into data-driven digital brand adjustments.
-
-### Deutsche Zusammenfassung
-* Projektziel: Entwicklung eines umfassenden Marketing-Analytics-Dashboards zur Überwachung von Social-Media-Kanälen, Verfolgung jährlicher KPI-Zielvorgaben und Performance-Ranking verschiedener Inhaltsthemen.
-* Angewandte Hard Skills: Sternschema-Implementierung (Star Schema), plattformübergreifende Metrik-Analysen, Zeitreihen-Varianzdiagnostik, dynamische Zielwertprüfung und Content-Performance-Matrizen.
-* Geschäftlicher Nutzen: Konsolidierung unstrukturierter Posting- und Follower-Datenströme in ein zentrales Dashboard zur Bereitstellung datengestützter Handlungsempfehlungen für die Markenführung.
+Marketing analytics | Power BI | DAX | Star Schema | Multi-platform KPI tracking
 
 ---
 
-## Project Assets and Management Report
+This project builds a marketing analytics dashboard for TechFuel Consulting, an IT consulting brand running social media campaigns across LinkedIn, Instagram, and Facebook. The raw data consisted of separate platform logs — individual posts, engagement metrics, and follower counts across 2021 and 2022 — with no unified view across channels.
 
-To review the visual charts, layout design choices, and full dashboard pages constructed for this business intelligence operation, access the document below:
+The three questions the dashboard was built to answer:
 
-* **[Download the Full PDF Dashboard and Management Report Presentation](Project 2_Techfuel Consulting.pdf)**
+1. Are the 2021 and 2022 KPI targets being met?
+2. Which platforms and content themes generate the strongest audience response?
+3. Where are the gaps that need budget or strategy adjustments?
 
----
+The full dashboard with visuals is in the PDF below.
 
-## 1. Project Overview and Operational Scenario
-The IT consulting brand TechFuel Consulting launched a multi-channel social media campaign to expand digital market awareness and increase corporate visibility. To protect the organization's advertising spend and track growth velocity, the marketing department required a unified data tracking mechanism. The raw data source consisted of separate platform logs tracking individual posts, interaction metrics, and follower timelines across consecutive years.
-
-As the Data Analyst, my mandate was to design an interactive reporting tool to solve three primary marketing questions:
-1. Are the designated corporate KPI goals for the 2021 and 2022 fiscal periods being achieved? (Werden die KPI-Ziele erreicht?)
-2. Which digital media platforms and content themes yield the highest audience response? (Welche Plattformen und Inhalte performen am besten?)
-3. Where do operational performance gaps exist that require immediate budget or strategy adjustments? (Wo bestehen Optimierungspotenziale?)
-
-## 2. Technical Stack and Competency Matrix
-* Business Intelligence Tool: Power BI Desktop
-* Data Engineering (ETL): Advanced Power Query (Ingestion of multi-platform text tables, conditional type casting, and structured date parsing).
-* Data Modeling: Constructed a relational Star Schema linking core campaign interaction fact metrics to structural dimension tables for Timeline horizons, Platform types, and Content themes.
-* Analytical Formula Design: Engineered explicit DAX expressions calculating total impressions, dynamic engagement rates (Engagement / Impressions), and target achievement percentages.
+**[View the Dashboard PDF](Project%202_Techfuel%20Consulting.pdf)**
 
 ---
 
-## 3. Key Metrics Discovered
-* Historical Campaign Volume: 4,581 Gross Interactions (3,479 in 2021 | 1,102 in 2022)
-* Macro Exposure Scale: 77,959 Total Impressions (55,909 in 2021 | 22,050 in 2022)
-* Platform Engagement Benchmarks (Overall Period Mean):
-  * LinkedIn Engagement Rate: 5.88%
-  * Instagram Engagement Rate: 4.52%
-  * Facebook Engagement Rate: 0.66%
+## Technical Stack
+
+| Layer | Tool / Method |
+|---|---|
+| BI Tool | Power BI Desktop |
+| ETL | Power Query — multi-platform text ingestion, type casting, date parsing |
+| Data Model | Star schema: interaction fact table linked to timeline, platform, and content theme dimensions |
+| Calculations | DAX — total impressions, dynamic engagement rate (Engagement / Impressions), target achievement % |
 
 ---
 
-## 4. Root Cause Diagnostics and Analytics Insights
+## Data Model
 
-### Multi-Year Monthly Posting Volume Targets
-The organization established a strict operational baseline requirement of exactly 10 posts per platform, per month. The target tracking arrays revealed sharp execution variances between the two fiscal periods:
-* 2021 Performance Gaps: Serious pipeline delivery friction was uncovered. LinkedIn hit 90% of its posting target, but Instagram achieved only 25% of its volume requirements, and Facebook slumped to a low 12.5% target achievement rate.
-* 2022 Performance Optimization: The data confirms successful operational corrections. LinkedIn reached a perfect 100% posting execution level, while both Facebook and Instagram stabilized at 25% target achievement scales.
+```
+         dim_platform
+              │
+dim_date ──► fact_interactions ◄── dim_content_theme
+              │
+         dim_target
+```
 
-### Platform-Specific Engagement Rate Timelines
-Time-series charts exposed extreme engagement volatility across channels, allowing for precise seasonal tracking:
-* LinkedIn Lead: Maintained an explicit position as the highest-performing network, frequently touching peaks up to 10% during active operational windows before settling at a steady 5.88% baseline average.
-* Instagram Curve: Recorded healthy activity vectors during early cycles, demonstrating an average engagement baseline of 4.52%.
-* Facebook Churn: Demonstrated severe channel friction, failing to break past a 2% engagement ceiling and generating an average engagement rate of only 0.66%, indicating low organic content reach.
-
-### Content Theme Ranking and Algorithmic Diagnostics
-Cross-tabulating average impressions against dynamic engagement percentages revealed critical variances across different content themes:
-* Facebook Matrix: Content flagged as "UNKNOWN", "Interview", and "Testimonial" drove the highest volume of average impressions. However, set-logic filtering proved that "Scholarship" and "Testimonial" themes generated the highest actual engagement rates, while "Interview" data collapsed to a 0% engagement level, exposing wasted reach.
-* Instagram Matrix: Top-tier impression metrics were heavily driven by "Interview" and "Blogpost/News" themes. Conversely, engagement rate profiles proved that "Event" and "Special Event" layouts recorded the highest audience response.
-* LinkedIn Matrix: The professional channel generated massive, high-performing returns. "Special Event" and "Employer Branding" themes captured the largest volume of average impressions, while "Special Event" content held an elite position, generating a 10% engagement rate.
-
-### Follower Velocity and Target Milestones
-Tracking absolute follower volumes against strategic corporate targets highlighted distinct performance fields across channels:
-* Instagram Target Over-Index: Achieved massive user acquisition. By April 2022, total active followers reached 874, completely clearing the strategic target boundary of 600 by a noticeable +45.67% growth margin.
-* LinkedIn Target Compliance: Demonstrated clean, steady tracking. By April 2022, the network registered 1,451 professional followers, clearing the target limit of 1,432 by +1.33%.
-* Facebook Attrition Drop: Missed corporate requirements. By December 2021, total followers stood at 1,668, dropping below the designated target framework of 1,712 by a deficit of -2.57%.
+Each row in `fact_interactions` represents one post. It connects to dimension tables for the platform it was published on, the content theme, the date, and the KPI targets set for that period.
 
 ---
 
-## 5. Documented Business Value and Project Impact
-* Provided transparent performance valuations across all digital marketing activities, replacing manual tracking lists with an automated corporate dashboard.
-* Discovered top-performing and underperforming content categories across channels, giving creative and marketing teams concrete parameters to stop underperforming ad lines.
-* Tracked the exact follower growth curves and monthly posting volumes relative to targets, enabling stakeholders to make data-driven budget adjustments.
-* Provided marketing managers with directly actionable operational insights to stop underperforming Facebook formats and shift creative resources into high-value LinkedIn and Instagram campaigns.
+## Dataset Overview
+
+| Metric | 2021 | 2022 | Total |
+|---|---|---|---|
+| Total interactions | 3,479 | 1,102 | 4,581 |
+| Total impressions | 55,909 | 22,050 | 77,959 |
 
 ---
 
+## Key Findings
+
+### Posting volume targets were largely missed in 2021
+
+The organization set a target of 10 posts per platform per month. 2021 results:
+
+| Platform | Target Achievement |
+|---|---|
+| LinkedIn | 90% |
+| Instagram | 25% |
+| Facebook | 12.5% |
+
+By 2022, LinkedIn reached 100%. Instagram and Facebook both stabilised at 25% — an improvement for Facebook, flat for Instagram.
+
+### LinkedIn outperforms on every engagement metric
+
+| Platform | Avg Engagement Rate |
+|---|---|
+| LinkedIn | 5.88% |
+| Instagram | 4.52% |
+| Facebook | 0.66% |
+
+LinkedIn regularly peaks at 10% during active campaign windows. Facebook never broke 2%, suggesting low organic reach regardless of posting frequency.
+
+### Content theme performance varies significantly by platform
+
+**LinkedIn:** Special Event and Employer Branding content drove the highest impressions. Special Event also held the highest engagement rate at 10% — the strongest single-theme result across all three platforms.
+
+**Instagram:** Interview and Blogpost/News led on impressions, but Event and Special Event content generated the strongest actual engagement. The two metrics point in different directions, meaning reach and response are driven by different content types.
+
+**Facebook:** Interview content produced high impressions but collapsed to 0% engagement — reach with no response. Scholarship and Testimonial themes generated the highest engagement rates despite lower impression volumes.
+
+### Follower growth vs. targets
+
+| Platform | Target | Actual | Variance |
+|---|---|---|---|
+| Instagram | 600 | 874 (Apr 2022) | +45.7% |
+| LinkedIn | 1,432 | 1,451 (Apr 2022) | +1.3% |
+| Facebook | 1,712 | 1,668 (Dec 2021) | -2.6% |
+
+Instagram significantly exceeded its target. LinkedIn tracked closely. Facebook missed — the only platform to fall below its follower target, consistent with its low engagement numbers throughout the analysis period.
+
+---
+
+## DAX Measures
+
+```
+// Total impressions
+Total Impressions = SUM(fact_interactions[impressions])
+
+// Engagement rate
+Engagement Rate =
+DIVIDE(
+    SUM(fact_interactions[engagements]),
+    SUM(fact_interactions[impressions]),
+    0
+)
+
+// Target achievement percentage
+Target Achievement % =
+DIVIDE(
+    [Total Posts],
+    [Monthly Post Target],
+    0
+)
+```
+
+---
+
+## Project Impact
+
+| Finding | Recommended Action |
+|---|---|
+| Facebook engagement at 0.66% | Reduce posting frequency, reallocate budget |
+| Interview content: high reach, 0% engagement on Facebook | Stop format on Facebook |
+| Special Event content: 10% engagement on LinkedIn | Prioritise for LinkedIn calendar |
+| Instagram follower target exceeded by 45% | Maintain current content mix |
+| Manual tracking lists across platforms | Replaced with unified live dashboard |
+
+---
