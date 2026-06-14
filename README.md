@@ -18,7 +18,7 @@
 
 To review the visual charts, layout design choices, and full dashboard pages constructed for this business intelligence operation, access the document below:
 
-* **[Download the Full PDF Dashboard and Management Report Presentation](Dashboard-Report-Presentation.pdf)**
+* **[Download the Full PDF Dashboard and Management Report Presentation](Project 2_Techfuel Consulting.pdf)**
 
 ---
 
