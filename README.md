@@ -83,5 +83,3 @@ Tracking absolute follower volumes against strategic corporate targets highlight
 
 ---
 
-
-Die in diesem Portfolio dokumentierten Datenstrukturkonzepte und Analyse-Workflows sind Open-Source und werden transparent unter der MIT-Lizenz bereitgestellt.
